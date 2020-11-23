@@ -8,14 +8,16 @@ if not (os.path.isfile('sis.db')):
         - student
         - staff
         - admin
+        - notice
     """
     with open('sis.db', 'w') as f:
         conn = sqlite3.connect('sis.db')
         c = conn.cursor()
 
-        c.execute('CREATE TABLE student (regno TEXT, name TEXT, password TEXT, d_o_b TEXT, attendance INT, maths_marks INT, computer_marks INT, english_marks INT, percentage_marks INT)')
+        c.execute('CREATE TABLE student (regno TEXT PRIMARY_KEY, name TEXT, password TEXT, d_o_b TEXT, attendance INT, maths_marks INT, computer_marks INT, english_marks INT, percentage_marks INT)')
         c.execute('CREATE TABLE staff (regno TEXT, name TEXT, password TEXT)')
         c.execute('CREATE TABLE admin (regno TEXT, password TEXT)')
+        c.execute('CREATE TABLE notice (notice TEXT)')
 
         conn.commit()
 
@@ -44,12 +46,15 @@ class DatabaseHelper:
         """
         self.conn.close()
     
-    def execute(self, query, data):
+    def execute(self, query, data={}):
         """
         Executes the query passed to the function
         """
         self.__openDbConnection()
-        self.c.execute(query, data)
+        if data != {}:
+            self.c.execute(query, data)
+        else:
+            self.c.execute(query)
         self.conn.commit()
         self.__closeDbConnection()
     
@@ -75,4 +80,4 @@ class DatabaseHelper:
         return record
 
 # db = DatabaseHelper()
-# print(db.getAll('SELECT * FROM staff'))
+# print(db.getAll('SELECT * FROM admin'))

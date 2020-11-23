@@ -68,3 +68,21 @@ class Admin:
                 return data
         except:
             return False
+        
+    def updateNotice(self, notice):
+        """
+        Enters new notice into the database
+        """
+        try:
+            self.db.execute(f'INSERT INTO notice (notice) VALUES ("{notice}")')
+            print('updated notice')
+            return True
+        except:
+            print('error')
+            return False
+
+    def getNotices(self):
+        """
+        :returns: All notices present
+        """
+        return self.db.getAll('SELECT * FROM notice')

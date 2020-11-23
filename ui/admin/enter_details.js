@@ -13,6 +13,8 @@ const dob = document.getElementById('dob');
 const nameStaff = document.getElementById('name-staff');
 const id = document.getElementById('id');
 
+const successMsgController = document.getElementById('success-msg');
+
 let loginType = 'Student';
 
 studentRadio.addEventListener("click", (e) => {
@@ -44,4 +46,10 @@ submit.addEventListener("click", async (e) => {
         success = await eel.enterDetails(loginType, regno.value, name.value, dob.value)();
     }
     console.log(success);
+
+    if (success) {
+        successMsgController.innerText = 'Successfully Inserted';
+    } else {
+        successMsgController.innerText = 'Error inserting into database';
+    }
 });

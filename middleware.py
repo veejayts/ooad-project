@@ -26,11 +26,7 @@ def enterDetails(detailType, id='', name='', dob=''):
     elif detailType == 'Staff':
         success = admin.enterStaffDetails(id, name)
 
-    if success:
-        return True
-    else:
-        return False
-    return True
+    return success
 
 @eel.expose
 def viewDetails(detailType, regno):
@@ -38,6 +34,18 @@ def viewDetails(detailType, regno):
     data = admin.viewDetails(detailType, regno)
     print('Requested data')
     print(data)
+    return data
+
+@eel.expose
+def updateNotice(notice):
+    admin = Admin()
+    success = admin.updateNotice(notice)
+    return success
+
+@eel.expose
+def getNotices():
+    admin = Admin()
+    data = admin.getNotices()
     return data
 
 eel.start('login.html')
