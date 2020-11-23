@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Details</title>
+    <script type="text/javascript" src="/eel.js"></script>
+</head>
+<body>
+    <a href="../admin/dashboard.html">back</a>
+
+    <h1>View Details</h1>
+
+    <label for="search-id"></label>
+    <input type="text" id="search-id" name="search-id">
+
+    <input type="radio" id="staff" name="detailType" value="Staff">
+    <label for="staff">Staff</label><br>
+    <input type="radio" id="student" name="detailType" value="Student">
+    <label for="student">Student</label>
+
+    <button id="view-details">View Details</button>
+
+    <div id="details"></div>
+
+    <div id="error"></div>
+
+    <script src="view_details.js"></script>
+</body>
+</html>

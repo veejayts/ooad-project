@@ -10,8 +10,15 @@
 <body>
     <h1>Student Information System</h1>
     <input type="text" id="regno">
-    <input type="text" id="password">
+    <input type="password" id="password">
+    <input type="radio" id="admin" name="loginType" value="Admin">
+    <label for="admin">Admin</label><br>
+    <input type="radio" id="staff" name="loginType" value="Staff">
+    <label for="staff">Staff</label><br>
+    <input type="radio" id="student" name="loginType" value="Student">
+    <label for="student">Student</label>
     <button id="login">Login</button>
-    <script src="app.js"></script>
+    <div id="error"></div>
+    <script src="login.js"></script>
 </body>
 </html>

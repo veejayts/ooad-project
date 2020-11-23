@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Details</title>
+    <link rel="stylesheet" href="enter_details.css">
+    <script type="text/javascript" src="/eel.js"></script>
+</head>
+<body>
+
+    <a href="dashboard.html">back</a>
+
+    <h1>Enter Details</h1>
+    
+    <p id="student">Student</p>
+    <p id="staff">Staff</p>
+
+    <div id="student-form" style="display: none;">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+        <label for="regno">Regno</label>
+        <input type="text" id="regno" name="regno">
+        <label for="dob">DOB</label>
+        <input type="text" id="dob" name="dob">
+    </div>
+
+    <div id="staff-form" style="display: none;">
+        <label for="name">Name</label>
+        <input type="text" id="name-staff" name="name">
+        <label for="id">ID</label>
+        <input type="text" id="id" name="id">
+    </div>
+
+    <button id="submit">Submit</button>
+
+    <script src="./enter_details.js"></script>
+</body>
+</html>

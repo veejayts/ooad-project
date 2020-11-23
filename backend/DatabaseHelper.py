@@ -13,7 +13,7 @@ if not (os.path.isfile('sis.db')):
         conn = sqlite3.connect('sis.db')
         c = conn.cursor()
 
-        c.execute('CREATE TABLE student (regno TEXT, name TEXT, password TEXT, d_o_b TEXT, attendance INT, maths_marks INT, science_marks INT, computer_marks INT, english_marks INT, percentage_marks INT)')
+        c.execute('CREATE TABLE student (regno TEXT, name TEXT, password TEXT, d_o_b TEXT, attendance INT, maths_marks INT, computer_marks INT, english_marks INT, percentage_marks INT)')
         c.execute('CREATE TABLE staff (regno TEXT, name TEXT, password TEXT)')
         c.execute('CREATE TABLE admin (regno TEXT, password TEXT)')
 
@@ -44,12 +44,12 @@ class DatabaseHelper:
         """
         self.conn.close()
     
-    def execute(self, query):
+    def execute(self, query, data):
         """
         Executes the query passed to the function
         """
         self.__openDbConnection()
-        self.c.execute(query)
+        self.c.execute(query, data)
         self.conn.commit()
         self.__closeDbConnection()
     
@@ -73,3 +73,6 @@ class DatabaseHelper:
         record = {'regno': record[0][0], 'password': record[0][1]}
         self.__closeDbConnection()
         return record
+
+# db = DatabaseHelper()
+# print(db.getAll('SELECT * FROM staff'))
