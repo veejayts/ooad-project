@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Student Details</title>
+    <script type="text/javascript" src="/eel.js"></script>
+</head>
+<body>
+    <a id="back"></a>
+
+    <h1>Update Student Details</h1>
+
+    <label for="search-field">Enter regno</label>
+    <input type="text" id="search-field" name="search-field">
+
+    <button id="search">Search</button>
+
+    
+    <div id="student-form" style="display: none;">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+        <label for="regno">Regno</label>
+        <input type="text" id="regno" name="regno" disabled>
+        <label for="dob">DOB</label>
+        <input type="text" id="dob" name="dob">
+        <label for="attendance">attendance</label>
+        <input type="number" id="attendance" name="attendance">
+        <label for="maths">maths</label>
+        <input type="number" id="maths" name="maths">
+        <label for="english">english</label>
+        <input type="number" id="english" name="english">
+        <label for="computer">computer</label>
+        <input type="number" id="computer" name="computer">
+        <label for="percentage">percentage</label>
+        <input type="number" id="percentage" name="percentage">
+        
+        <button id="submit">Submit</button>
+    </div>
+    
+    <h2 id="error"></h2>
+
+    <script src="update_details.js"></script>
+</body>
+</html>

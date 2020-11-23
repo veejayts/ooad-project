@@ -35,3 +35,14 @@ search.addEventListener('click', async (e) => {
         errorController.innerText = 'Error: User not found, check details and try again';
     }
 });
+
+async function setBackPath() {
+    const loginType = await eel.getLoginType()();
+    if (loginType === 'Staff') {
+        document.getElementById('back').href = '../staff/dashboard.html'
+    } else {
+        document.getElementById('back').href = '../admin/dashboard.html'
+    }
+}
+
+setBackPath();

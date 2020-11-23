@@ -7,10 +7,13 @@ from backend.Admin import Admin
 eel.init('ui')
 
 sys = System()
+global id
 
 @eel.expose
 def login(username, password, login_type):
     isValid = sys.login(username, password, login_type)
+    global id
+    id = username
     return isValid
 
 @eel.expose
@@ -46,6 +49,17 @@ def updateNotice(notice):
 def getNotices():
     admin = Admin()
     data = admin.getNotices()
+    data.reverse()
     return data
+
+@eel.expose
+def updateDetails(name, regno, dob, attendance, maths, english, computer, percentage):
+    staff = Staff()
+    success = staff.updateDetails(name, regno, dob, attendance, maths, english, computer, percentage)
+    return success
+
+@eel.expose
+def getRegno():
+    return id
 
 eel.start('login.html')

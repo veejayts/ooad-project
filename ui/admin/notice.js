@@ -14,7 +14,7 @@ submit.addEventListener('click', async (e) => {
 
     successMsgController.innerText = success? 'Sucessfully Updated Notice': 'Error during updation';
 
-    notices = await eel.getNotices()();
+    let notices = await eel.getNotices()();
 
     noticesController.innerText = '';
 
