@@ -2,22 +2,22 @@ from backend.DatabaseHelper import DatabaseHelper
 
 class Admin:
     db = DatabaseHelper()
-
-    def __init__(self):
-        print('Admin instantiated')
+    id = 0
+    password = ''
     
     def enterStudentDetails(self, regno, name, d_o_b):
         """
         Enters new student details in the database
         :returns: True if insertion of student details was successful. False if the operation was not successful.
         """
-        student_data = {
-            'regno': regno,
-            'name': name,
-            'password': f'student{regno}',
-            'd_o_b': d_o_b
-        }
+
         try:
+            student_data = {
+                'regno': int(regno),
+                'name': name,
+                'password': f'student{regno}',
+                'd_o_b': d_o_b
+            }
             self.db.execute('INSERT INTO student(regno, password, name, d_o_b) VALUES (:regno, :password, :name, :d_o_b)', student_data)
             return True
         except Exception:
@@ -86,3 +86,50 @@ class Admin:
         :returns: All notices present
         """
         return self.db.getAll('SELECT * FROM notice')
+
+    def updateDetails(self, name, regno, dob, attendance, maths, english, computer, percentage):
+        """
+        Updates details of existing students
+        :returns: True if insertion of student details was successful. False if the operation was not successful.
+        """
+        student_data = {
+            'name': name,
+            'regno': regno,
+            'dob': dob, 
+            'attendance': attendance, 
+            'maths': maths, 
+            'english': english, 
+            'computer': computer, 
+            'percentage': percentage
+        }
+
+        try:
+            self.db.execute('UPDATE student SET name = :name, d_o_b = :dob, attendance = :attendance, maths_marks = :maths, english_marks = :english, computer_marks = :computer, percentage_marks = :percentage WHERE regno = :regno', student_data)
+            return True
+        except:
+            return False
+        
+    def updateMarks(self, name, regno, dob, attendance, maths, english, computer, percentage):
+        """
+        Updates details of existing students
+        :returns: True if insertion of student details was successful. False if the operation was not successful.
+        """
+        student_data = {
+            'regno': regno,
+            'maths': maths, 
+            'english': english, 
+            'computer': computer, 
+            'percentage': percentage
+        }
+
+        try:
+            self.db.execute('UPDATE student SET maths_marks = :maths, english_marks = :english, computer_marks = :computer, percentage_marks = :percentage WHERE regno = :regno', student_data)
+            return True
+        except:
+            return False
+    
+    def logout(self):
+        """
+        Logs out the user
+        """
+        print('Logged out of Student')

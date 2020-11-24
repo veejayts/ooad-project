@@ -8,12 +8,15 @@ eel.init('ui')
 
 sys = System()
 global id
+global isLoggedIn
 
 @eel.expose
 def login(username, password, login_type):
     isValid = sys.login(username, password, login_type)
     global id
+    global isLoggedIn
     id = username
+    isLoggedIn = True
     return isValid
 
 @eel.expose
@@ -23,12 +26,10 @@ def getLoginType():
 @eel.expose
 def enterDetails(detailType, id='', name='', dob=''):
     admin = Admin()
-
     if detailType == 'Student':
         success = admin.enterStudentDetails(id, name, dob)
     elif detailType == 'Staff':
         success = admin.enterStaffDetails(id, name)
-
     return success
 
 @eel.expose
@@ -61,5 +62,15 @@ def updateDetails(name, regno, dob, attendance, maths, english, computer, percen
 @eel.expose
 def getRegno():
     return id
+
+@eel.expose
+def getLoginStatus():
+    return isLoggedIn
+
+@eel.expose
+def logout():
+    global isLoggedIn
+    isLoggedIn = False
+
 
 eel.start('login.html')

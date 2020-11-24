@@ -14,14 +14,14 @@ if not (os.path.isfile('sis.db')):
         conn = sqlite3.connect('sis.db')
         c = conn.cursor()
 
-        c.execute('CREATE TABLE student (regno TEXT PRIMARY_KEY, name TEXT, password TEXT, d_o_b TEXT, attendance INT, maths_marks INT, computer_marks INT, english_marks INT, percentage_marks INT)')
+        c.execute('CREATE TABLE student (regno INT PRIMARY_KEY, name TEXT, password TEXT, d_o_b TEXT, attendance INT, maths_marks INT, computer_marks INT, english_marks INT, percentage_marks INT)')
         c.execute('CREATE TABLE staff (regno TEXT, name TEXT, password TEXT)')
-        c.execute('CREATE TABLE admin (regno TEXT, password TEXT)')
+        c.execute('CREATE TABLE admin (regno INT, password TEXT)')
         c.execute('CREATE TABLE notice (notice TEXT)')
 
         conn.commit()
 
-        c.execute('INSERT INTO admin (regno, password) VALUES ("admin", "password")')
+        c.execute('INSERT INTO admin (regno, password) VALUES (12345, "password")')
 
         conn.commit()
         conn.close()
@@ -73,7 +73,9 @@ class DatabaseHelper:
         :returns: regno and password of required user
         """
         self.__openDbConnection()
-        self.c.execute(f'SELECT regno, password FROM {login_type} WHERE regno = "{regno}"')
+        self.c.execute(f'SELECT regno, password FROM {login_type} WHERE regno = :regno', {
+            'regno': regno
+        })
         record = self.c.fetchall()
         record = {'regno': record[0][0], 'password': record[0][1]}
         self.__closeDbConnection()

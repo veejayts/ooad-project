@@ -7,24 +7,28 @@
     <script type="text/javascript" src="/eel.js"></script>
 </head>
 <body>
+    <a id="logout">Logout</a>
     <a id="back">back</a>
 
-    <h1>View Details</h1>
-
-    <label for="search-id"></label>
-    <input type="text" id="search-id" name="search-id">
-
-    <input type="radio" id="staff" name="detailType" value="Staff">
-    <label for="staff">Staff</label><br>
-    <input type="radio" id="student" name="detailType" value="Student">
-    <label for="student">Student</label>
-
-    <button id="view-details">View Details</button>
-
-    <div id="details"></div>
-
-    <div id="error"></div>
+    <div id="main">
+        <h1>View Details</h1>
+    
+        <label for="search-id"></label>
+        <input type="text" id="search-id" name="search-id">
+    
+        <input type="radio" id="staff" name="detailType" value="Staff">
+        <label for="staff">Staff</label><br>
+        <input type="radio" id="student" name="detailType" value="Student">
+        <label for="student">Student</label>
+    
+        <button id="view-details">View Details</button>
+    
+        <div id="details"></div>
+    
+        <div id="error"></div>
+    </div>
 
     <script src="view_details.js"></script>
+    <script src="../loginstatus.js"></script>
 </body>
 </html>

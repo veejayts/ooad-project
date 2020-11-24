@@ -1,6 +1,9 @@
 from backend.DatabaseHelper import DatabaseHelper
 
 class System:
+    systemno = 1
+    password = 'password'
+
     db = DatabaseHelper()
     loginType = ''
     
@@ -8,14 +11,14 @@ class System:
         """
         Logs the user into the system
         """
-        print('Login called')
         self.loginType = login_type
+        login_type = login_type.lower()
 
-        # try:
+        if (login_type != 'staff'):
+            regno = int(regno)
+
         credentials = self.db.getLoginCredentials(regno, login_type)
         print(credentials)
-        # except:
-        #     return False
 
         if regno == credentials['regno'] and password == credentials['password']:
             return True
