@@ -1,1 +1,1 @@
-# ooad-project
+# STUDENT INFORMATION SYSTEM (OOAD Project)
