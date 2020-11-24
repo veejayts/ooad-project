@@ -12,11 +12,15 @@ global isLoggedIn
 
 @eel.expose
 def login(username, password, login_type):
-    isValid = sys.login(username, password, login_type)
-    global id
-    global isLoggedIn
-    id = username
-    isLoggedIn = True
+    isValid = False
+    try:
+        isValid = sys.login(username, password, login_type)
+        global id
+        global isLoggedIn
+        id = username
+        isLoggedIn = True
+    except:
+        isLoggedIn = False
     return isValid
 
 @eel.expose
@@ -36,8 +40,6 @@ def enterDetails(detailType, id='', name='', dob=''):
 def viewDetails(detailType, regno):
     admin = Admin()
     data = admin.viewDetails(detailType, regno)
-    print('Requested data')
-    print(data)
     return data
 
 @eel.expose

@@ -4,26 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notice Update</title>
+    <link rel="stylesheet" href="../materialize.min.css">
     <script type="text/javascript" src="/eel.js"></script>
 </head>
 <body>
-    <a id="logout">Logout</a>
-    <a href="./dashboard.html">back</a>
+    <div class="container">
+        <div class="row">
+            <div class="col s4 left-align">
+                <a href="dashboard.html" class="waves-effect waves-light btn" style="margin-top: 10px;">Back</a>
+            </div>
+            <div class="col s4"></div>
+            <div class="col s4 right-align">
+                <a id="logout" class="waves-effect waves-light btn red" style="margin-top: 10px;">Logout</a>
+            </div>
+        </div>
+        
+        <div id="main">
+            <div class="row">
+                <h1>Update Notice</h1>
+            </div>
 
-    <div id="main">
-        <h1>Update Notice</h1>
-    
-        <label for="notice"></label>
-        <input type="text" id="notice" name="notice">
-    
-        <button id="submit">Update</button>
-    
-        <div id="success"></div>
-    
-        <div id="notices"></div>
+            <div class="row">
+                <div class="input-field">
+                    <input id="notice" type="text" name="notice" class="validate">
+                    <label for="notice">Enter notice to be displayed to students</label>
+                </div>
+                
+                <a id="submit" class="waves-effect waves-light btn green">Update</a>
+                
+                <div class="row center-align">
+                    <p id="success"></p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <table>
+                    <tbody id="notices"></tbody>
+                </table>
+            </div>
+        </div>
     </div>
     
     <script src="notice.js"></script>
     <script src="../loginstatus.js"></script>
+    <script src="../materialize.min.js"></script>
 </body>
 </html>

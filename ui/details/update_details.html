@@ -4,47 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Student Details</title>
+    <link rel="stylesheet" href="../materialize.min.css">
     <script type="text/javascript" src="/eel.js"></script>
 </head>
 <body>
-    <a id="logout">Logout</a>
-    <a id="back">back</a>
-
-    <div id="main">
-        <h1>Update Student Details</h1>
-    
-        <label for="search-field">Enter regno</label>
-        <input type="text" id="search-field" name="search-field">
-    
-        <button id="search">Search</button>
-    
-        
-        <div id="student-form" style="display: none;">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name">
-            <label for="regno">Regno</label>
-            <input type="text" id="regno" name="regno" disabled>
-            <label for="dob">DOB</label>
-            <input type="text" id="dob" name="dob">
-            <label for="attendance">attendance</label>
-            <input type="number" id="attendance" name="attendance">
-            <label for="maths">maths</label>
-            <input type="number" id="maths" name="maths">
-            <label for="english">english</label>
-            <input type="number" id="english" name="english">
-            <label for="computer">computer</label>
-            <input type="number" id="computer" name="computer">
-            <label for="percentage">percentage</label>
-            <input type="number" id="percentage" name="percentage">
-            
-            <button id="submit">Submit</button>
+    <div class="container">
+        <div class="row">
+            <div class="col s4 left-align">
+                <a id='back' class="waves-effect waves-light btn" style="margin-top: 10px;">Back</a>
+            </div>
+            <div class="col s4"></div>
+            <div class="col s4 right-align">
+                <a id="logout" class="waves-effect waves-light btn red" style="margin-top: 10px;">Logout</a>
+            </div>
         </div>
+        <div id="main">
+            <div class="row">
+                <h1>Update Student Details</h1>
+            </div>
+            
+            <div class="row">
+                <div class="input-field">
+                    <input id="search-field" type="text" name="search-field" class="validate">
+                    <label for="search-field">Enter register number of student</label>
+                </div>
+                <div class="center-align">
+                    <a id="search" class="waves-effect waves-light btn green">Search</a>
+                </div>
+            </div>
+            
+            <div class="row center-align">
+                <p id="error"></p>
+            </div>
         
-        <h2 id="error"></h2>
+            <div id="student-form" style="display: none;">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" />
+                <label for="regno">Register Number</label>
+                <input type="text" id="regno" name="regno" / disabled>
+                <label for="dob">DOB</label>
+                <input type="text" id="dob" name="dob" />
+                <label for="attendance">Attendance</label>
+                <input type="number" id="attendance" name="attendance" />
+                <label for="maths">Maths marks</label>
+                <input type="number" id="maths" name="maths" />
+                <label for="english">English marks</label>
+                <input type="number" id="english" name="english" />
+                <label for="computer">Computer marks</label>
+                <input type="number" id="computer" name="computer" />
+                <label for="percentage">Total marks percentage</label>
+                <input type="number" id="percentage" name="percentage" />
+                <div class="row center-align">
+                    <a id="submit" class="waves-effect waves-light btn green darken-2">Submit</a>
+                </div>
+            </div>
+        
+        </div>
     </div>
-
 
     <script src="update_details.js"></script>
     <script src="../loginstatus.js"></script>
+    <script src="../materialize.min.js"></script>
 </body>
 </html>

@@ -4,21 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Information System</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="materialize.min.css">
     <script type="text/javascript" src="/eel.js"></script>
 </head>
 <body>
-    <h1>Student Information System</h1>
-    <input type="text" id="regno">
-    <input type="password" id="password">
-    <input type="radio" id="admin" name="loginType" value="Admin">
-    <label for="admin">Admin</label><br>
-    <input type="radio" id="staff" name="loginType" value="Staff">
-    <label for="staff">Staff</label><br>
-    <input type="radio" id="student" name="loginType" value="Student">
-    <label for="student">Student</label>
-    <button id="login">Login</button>
-    <div id="error"></div>
+
+    <div class="container">
+        <div class="row center-align">
+            <h1>Student Information System</h1>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input id="regno" type="text" class="validate">
+                <label for="regno">Register No. or ID</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <p id="error"></p>
+        </div>
+        <div class="row center-align">
+            <div class="col s4">
+                <p>
+                    <label>
+                      <input name="loginType" id="student" type="radio" value="Student" />
+                      <span>Student</span>
+                    </label>
+                </p>
+            </div>
+            <div class="col s4">
+                <p>
+                    <label>
+                        <input name="loginType" id="staff" type="radio" value="Staff" />
+                        <span>Staff</span>
+                    </label>
+                </p>
+            </div>
+            <div class="col s4">
+                <p>
+                    <label>
+                      <input name="loginType" id="admin" type="radio" value="Admin" />
+                      <span>Admin</span>
+                    </label>
+                </p>
+            </div>
+        </div>
+        <div class="row center-align">
+            <div class="col s4"></div>
+            <div class="col s4">
+                <a id="login" class="waves-effect waves-light btn">Login</a>
+            </div>
+            <div class="col s4"></div>
+        </div>
+        <div class="row center-align" style="padding-top: 45px;">
+                <h5>Done by</h5>
+                <p>VIJAY T S - 310618104113</p>
+                <p>SAMUEL KOSHY - 310618104081</p>
+                <p>YUTEESH S - 310618104120</p>
+                <p>SANCHIT PARWATE - 310618104081</p>
+        </div>
+    </div>
+
     <script src="login.js"></script>
+    <script src="materialize.min.js"></script>
 </body>
 </html>

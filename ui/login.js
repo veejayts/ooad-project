@@ -32,8 +32,9 @@ submit.addEventListener("click", async (e) => {
     } else {
         let error = document.getElementById("error");
         error.innerHTML = "";
-        let h2 = document.createElement("h2");
-        h2.innerText = "Invalid regno or password. Try again.";
-        error.appendChild(h2);
+        let p = document.createElement("p");
+        p.style.color = 'red';
+        p.innerText = "Invalid regno or password. Try again.";
+        error.appendChild(p);
     }
 });

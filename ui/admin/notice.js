@@ -10,16 +10,31 @@ submit.addEventListener('click', async (e) => {
 
     let success = await eel.updateNotice(notice)();
 
-    console.log(success);
+    // console.log(success);
 
-    successMsgController.innerText = success? 'Sucessfully Updated Notice': 'Error during updation';
-
-    let notices = await eel.getNotices()();
-
-    noticesController.innerText = '';
-
-    for(n of notices) {
-        noticesController.innerHTML += `${n[0]}<br>`;
+    if(success) {
+        successMsgController.innerText = 'Sucessfully Updated Notice';
+        successMsgController.style.color = 'green';
+    } else {
+        successMsgController.innerText = 'Error during updation';
+        successMsgController.style.color = 'red';
     }
+
+    getNotices();
 });
 
+async function getNotices() {
+    let notices = await eel.getNotices()();
+
+    noticesController.innerHTML = '';
+
+    if(notices.length === 0) {
+        noticesController.innerHTML = '<tr><td>No Notices</td></tr>';
+    } else {
+        for(n of notices) {
+            noticesController.innerHTML += `<tr><td>${n[0]}</td></tr>`;
+        }
+    }
+}
+
+getNotices();

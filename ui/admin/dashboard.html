@@ -4,24 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="../materialize.min.css">
     <script type="text/javascript" src="/eel.js"></script>
 </head>
 <body>
-    <a id="logout">Logout</a>
-
-    <div id="main">
-        <h1 id="page-title">Dashboard</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col s6"></div>
+            <div class="col s6 right-align">
+                <a id="logout" class="waves-effect waves-light btn red" style="margin-top: 10px;">Logout</a>
+            </div>
+        </div>
     
-        <div id="options">
-            <a href="../details/view_details.html">View Details</a>
-            <a href="./enter_details.html">Enter Details</a>
-            <a href="../details/update_details.html">Update Details</a>
-            <a href="notice.html">Update Notice</a>
+        <div id="main">
+            <h1 id="page-title">Admin Dashboard</h1>
+        
+            <div id="options">
+                <div class="row">
+                    <div class="col s6 m5">
+                        <div class="card horizontal">
+                            <div class="card-stacked">
+                                <div class="card-action">
+                                    <a href="../details/view_details.html">View Details</a>
+                                </div>
+                                <div class="card-content">
+                                    <p>View Details of any Staff or Student</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <a href="../details/view_details.html">View Details</a> -->
+                    <div class="col s6 m5">
+                        <div class="card horizontal">
+                            <div class="card-stacked">
+                                <div class="card-action">
+                                    <a href="./enter_details.html">Enter Details</a>
+                                </div>
+                                <div class="card-content">
+                                    <p>Enter Details of any Staff or Student</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <a href="./enter_details.html">Enter Details</a> -->
+                </div>
+                <div class="row">
+                    <div class="col s6 m5">
+                        <div class="card horizontal">
+                            <div class="card-stacked">
+                                <div class="card-action">
+                                    <a href="../details/update_details.html">Update details</a>
+                                </div>
+                                <div class="card-content">
+                                    <p>Update Details of any Student</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <a href="../details/update_details.html">Update Details</a> -->               
+                    <div class="col s6 m5">
+                        <div class="card horizontal">
+                            <div class="card-stacked">
+                                <div class="card-action">
+                                    <a href="notice.html">Update Notices</a>
+                                </div>
+                                <div class="card-content">
+                                    <p>Update Notices for Students</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <a href="notice.html">Update Notice</a> -->
+                </div>
+            </div>
         </div>
     </div>
 
     <script src="./dashboard.js"></script>
     <script src="../loginstatus.js"></script>
+    <script src="../materialize.min.js"></script>
 </body>
 </html>

@@ -5,42 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enter Details</title>
     <link rel="stylesheet" href="enter_details.css">
+    <link rel="stylesheet" href="../materialize.min.css">
     <script type="text/javascript" src="/eel.js"></script>
 </head>
 <body>
+    <div class="container">
+        <div class="row">
+            <div class="col s4 left-align">
+                <a id='back' href="dashboard.html" class="waves-effect waves-light btn" style="margin-top: 10px;">Back</a>
+            </div>
+            <div class="col s4"></div>
+            <div class="col s4 right-align">
+                <a id="logout" class="waves-effect waves-light btn red" style="margin-top: 10px;">Logout</a>
+            </div>
+        </div>
+        <div id="main">
+            <h1>Enter Details</h1>
 
-    <a id="logout">Logout</a>
-    <a href="dashboard.html">back</a>
-
-    <div id="main">
-        <h1>Enter Details</h1>
+            <div class="row">
+                <div class="col s6 center-align">
+                    <a id="student" class="waves-effect waves-teal btn-flat">Student</a>
+                </div>
+                <div class="col s6 center-align">
+                    <a id="staff" class="waves-effect waves-teal btn-flat">Staff</a>
+                </div>
+            </div>
         
-        <p id="student">Student</p>
-        <p id="staff">Staff</p>
-    
-        <div id="student-form" style="display: none;">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name">
-            <label for="regno">Regno</label>
-            <input type="text" id="regno" name="regno">
-            <label for="dob">DOB</label>
-            <input type="text" id="dob" name="dob">
-        </div>
-    
-        <div id="staff-form" style="display: none;">
-            <label for="name">Name</label>
-            <input type="text" id="name-staff" name="name">
-            <label for="id">ID</label>
-            <input type="text" id="id" name="id">
-        </div>
-    
-        <div id="success-msg"></div>
-    
-        <button id="submit">Submit</button>
-    </div>
+            <div id="student-form">
+                <div class="row">
+                    <div class="input-field">
+                        <input id="name" type="text" class="validate">
+                        <label for="name">Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field">
+                        <input id="regno" type="text" class="validate">
+                        <label for="regno">Register Number</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field">
+                        <input id="dob" type="text" class="validate">
+                        <label for="dob">Date of Birth</label>
+                    </div>
+                </div>
+            </div>
+        
+            <div id="staff-form" style="display: none;">
+                <div class="row">
+                    <div class="input-field">
+                        <input id="name-staff" type="text" class="validate">
+                        <label for="name-staff">Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field">
+                        <input id="id" type="text" class="validate">
+                        <label for="id">ID</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row center-align">
+                <p id="success-msg"></p>
+            </div>
 
+            <div class="row center-align">
+                <a id="submit" class="waves-effect waves-light btn green">Submit</a>
+            </div>
+        </div>
+    </div>
 
     <script src="./enter_details.js"></script>
     <script src="../loginstatus.js"></script>
+    <script src="../materialize.min.js"></script>
 </body>
 </html>

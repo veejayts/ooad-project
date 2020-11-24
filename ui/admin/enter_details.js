@@ -16,18 +16,25 @@ const id = document.getElementById('id');
 const successMsgController = document.getElementById('success-msg');
 
 let loginType = 'Student';
+studentRadio.style.backgroundColor = 'aqua';
 
 studentRadio.addEventListener("click", (e) => {
     e.preventDefault();
+    successMsgController.innerText = '';
     studentFormController.style.display = 'block';
     staffFormController.style.display = 'none';
+    studentRadio.style.backgroundColor = 'aqua';
+    staffRadio.style.backgroundColor = '';
     loginType = 'Student';
 })
 
 staffRadio.addEventListener("click", (e) => {
     e.preventDefault();
+    successMsgController.innerText = '';
     staffFormController.style.display = 'block';
     studentFormController.style.display = 'none';
+    studentRadio.style.backgroundColor = '';
+    staffRadio.style.backgroundColor = 'aqua';
     loginType = 'Staff';
 })
 
@@ -49,7 +56,9 @@ submit.addEventListener("click", async (e) => {
 
     if (success) {
         successMsgController.innerText = 'Successfully Inserted';
+        successMsgController.style.color = 'green';
     } else {
         successMsgController.innerText = 'Error inserting into database';
+        successMsgController.style.color = 'red';
     }
 });

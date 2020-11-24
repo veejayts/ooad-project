@@ -83,4 +83,4 @@ class Staff:
         """
         Logs out the user
         """
-        print('Logged out of Student')
+        print('Logged out of Staff')

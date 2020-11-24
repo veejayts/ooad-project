@@ -1,11 +1,10 @@
 const logout = document.getElementById('logout');
-console.log(logout)
+logout.style.cursor = 'pointer';
 
 async function checkLogin() {
     let loggedIn = await eel.getLoginStatus()();
-    console.log(loggedIn);
     if(!loggedIn) {
-        document.getElementById('main').innerHTML = 'Please login again';
+        document.getElementById('main').innerHTML = '<h1>Please login again</h1>';
     }
 }
 

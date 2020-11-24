@@ -25,7 +25,7 @@ searchBtn.addEventListener('click', async (e) => {
         return;
     }
 
-    console.log(data);
+    // console.log(data);
     
     nameController.value = data['name'];
     regnoController.value = data['regno'];
@@ -62,8 +62,10 @@ submitBtn.addEventListener('click', async (e) => {
 
     if(success) {
         errorController.innerText = 'Successfully updated details';
+        errorController.style.color = 'green';
     } else {
         errorController.innerText = 'Error, could not update details';
+        errorController.style.color = 'red';
     }
 });
 

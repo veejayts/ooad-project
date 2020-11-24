@@ -4,31 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Details</title>
+    <link rel="stylesheet" href="../materialize.min.css">
     <script type="text/javascript" src="/eel.js"></script>
 </head>
 <body>
-    <a id="logout">Logout</a>
-    <a id="back">back</a>
+    <div class="container">
+        <div class="row">
+            <div class="col s4 left-align">
+                <a id='back' class="waves-effect waves-light btn" style="margin-top: 10px;">Back</a>
+            </div>
+            <div class="col s4"></div>
+            <div class="col s4 right-align">
+                <a id="logout" class="waves-effect waves-light btn red" style="margin-top: 10px;">Logout</a>
+            </div>
+        </div>
+        
+        <div id="main">
+            <div class="row">
+                <h1>View Details</h1>
+            </div>
 
-    <div id="main">
-        <h1>View Details</h1>
-    
-        <label for="search-id"></label>
-        <input type="text" id="search-id" name="search-id">
-    
-        <input type="radio" id="staff" name="detailType" value="Staff">
-        <label for="staff">Staff</label><br>
-        <input type="radio" id="student" name="detailType" value="Student">
-        <label for="student">Student</label>
-    
-        <button id="view-details">View Details</button>
-    
-        <div id="details"></div>
-    
-        <div id="error"></div>
+            <div class="row">
+                <div class="input-field">
+                    <input id="search-id" type="text" name="search-id" class="validate">
+                    <label for="search-id">Enter register number of student</label>
+                </div>
+                <div class="col s6">
+                    <p>
+                        <label>
+                          <input name="detailType" id="student" type="radio" value="Student" />
+                          <span>Student</span>
+                        </label>
+                    </p>
+
+                </div>
+                <div class="col s6">
+                    <p>
+                        <label>
+                          <input name="detailType" id="staff" type="radio" value="Staff" />
+                          <span>Staff</span>
+                        </label>
+                    </p>
+                </div>
+
+                <a id="view-details" class="waves-effect waves-light btn green" style="margin-top: 10px;">View Details</a>
+            </div>
+
+            <div class="row center-align">
+                <p id="error"></p>
+            </div>
+            
+            <table>
+                <tbody id="details"></tbody>
+            </table>
+        </div>
     </div>
-
-    <script src="view_details.js"></script>
-    <script src="../loginstatus.js"></script>
+        
+        <script src="view_details.js"></script>
+        <script src="../loginstatus.js"></script>
+        <script src="../materialize.min.js"></script>
 </body>
 </html>

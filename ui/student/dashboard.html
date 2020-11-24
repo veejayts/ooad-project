@@ -4,29 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Dashboard</title>
+    <link rel="stylesheet" href="../materialize.min.css">
     <script type="text/javascript" src="/eel.js"></script>
 </head>
 <body>
-    <a id="logout">Logout</a>
-
-    <div id="main">
-        <h1>Student Dashboard</h1>
-    
-        <a href="view_notice.html">View Notices</a>
-    
-        <div id="student-form">
-            <p id="name">name: </p>
-            <p id="regno">regno: </p>
-            <p id="dob">dob: </p>
-            <p id="attendance">attendance: </p>
-            <p id="maths">maths: </p>
-            <p id="english">english: </p>
-            <p id="computer">computer:</p>
-            <p id="percentage">percentage: </p>
+    <div class="container">
+        <div class="row">
+            <div class="col s6"></div>
+            <div class="col s6 right-align">
+                <a id="logout" class="waves-effect waves-light btn red" style="margin-top: 10px;">Logout</a>
+            </div>
         </div>
-    </div>    
+    
+        <div id="main">
+            <h1>Student Dashboard</h1>
+            
+            <a class="waves-effect waves-light btn indigo" style="margin: 10px 0 10px 0;" href="view_notice.html">View Notices</a>
+        
+            <div id="student-form">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td id="name"></td>
+                        </tr>
+                        <tr>
+                            <td>Register Number</td>
+                            <td id="regno"></td>
+                        </tr>
+                        <tr>
+                            <td>DOB</td>
+                            <td id="dob"></td>
+                        </tr>
+                        <tr>
+                            <td>Attendance</td>
+                            <td id="attendance"></td>
+                        </tr>
+                        <tr>
+                            <td>Maths marks</td>
+                            <td id="maths"></td>
+                        </tr>
+                        <tr>
+                            <td>English marks</td>
+                            <td id="english"></td>
+                        </tr>
+                        <tr>
+                            <td>Computer marks</td>
+                            <td id="computer"></td>
+                        </tr>
+                        <tr>
+                            <td>Total marks percentage</td>
+                            <td id="percentage"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     
     <script src="dashboard.js"></script>
     <script src="../loginstatus.js"></script>
+    <script src="../materialize.min.js"></script>
 </body>
 </html>

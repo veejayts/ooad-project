@@ -62,8 +62,8 @@ class Admin:
                 record = self.db.getAll(f'SELECT * FROM staff WHERE regno = "{id}"')
                 record = record[0]
                 data = {
-                    'id': record[0],
-                    'name': record[1]
+                    'name': record[1],
+                    'id': record[0]
                 }
                 return data
         except:
@@ -75,10 +75,8 @@ class Admin:
         """
         try:
             self.db.execute(f'INSERT INTO notice (notice) VALUES ("{notice}")')
-            print('updated notice')
             return True
         except:
-            print('error')
             return False
 
     def getNotices(self):
@@ -132,4 +130,4 @@ class Admin:
         """
         Logs out the user
         """
-        print('Logged out of Student')
+        print('Logged out of Admin')

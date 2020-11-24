@@ -80,6 +80,3 @@ class DatabaseHelper:
         record = {'regno': record[0][0], 'password': record[0][1]}
         self.__closeDbConnection()
         return record
-
-# db = DatabaseHelper()
-# print(db.getAll('SELECT * FROM admin'))
