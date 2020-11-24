@@ -58,12 +58,15 @@ class DatabaseHelper:
         self.conn.commit()
         self.__closeDbConnection()
     
-    def getAll(self, select_query):
+    def getAll(self, select_query, data={}):
         """
         Returns the records for the SELECT query passed
         """
         self.__openDbConnection()
-        self.c.execute(select_query)
+        if data == {}:
+            self.c.execute(select_query)
+        else:
+            self.c.execute(select_query, data)
         records = self.c.fetchall()
         self.__closeDbConnection()
         return records
@@ -80,3 +83,6 @@ class DatabaseHelper:
         record = {'regno': record[0][0], 'password': record[0][1]}
         self.__closeDbConnection()
         return record
+
+# db = DatabaseHelper()
+# print(db.getAll('SELECT regno FROM student WHERE regno = 8'))

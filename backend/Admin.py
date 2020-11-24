@@ -10,7 +10,6 @@ class Admin:
         Enters new student details in the database
         :returns: True if insertion of student details was successful. False if the operation was not successful.
         """
-
         try:
             student_data = {
                 'regno': int(regno),
@@ -18,6 +17,13 @@ class Admin:
                 'password': f'student{regno}',
                 'd_o_b': d_o_b
             }
+            print(student_data)
+
+            # Checking if student already exists
+            rec = self.db.getAll('SELECT regno FROM student WHERE regno = :regno', {'regno': int(regno)})
+            if len(rec) >= 1:
+                return False
+
             self.db.execute('INSERT INTO student(regno, password, name, d_o_b) VALUES (:regno, :password, :name, :d_o_b)', student_data)
             return True
         except Exception:
@@ -34,6 +40,11 @@ class Admin:
             'name': name
         }
         try:
+            # Checking if staff already exists
+            rec = self.db.getAll('SELECT regno FROM staff WHERE regno = :regno', {'regno': int(regno)})
+            if len(rec) >= 1:
+                return False
+
             self.db.execute(f'INSERT INTO staff (regno, password, name) VALUES (:regno, :password, :name)', staffData)
             return True
         except Exception:
