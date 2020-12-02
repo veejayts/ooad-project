@@ -27,24 +27,26 @@
             <div class="row">
                 <div class="input-field">
                     <input id="search-id" type="text" name="search-id" class="validate">
-                    <label for="search-id">Enter register number of student</label>
+                    <label for="search-id" id="search-id-text">Enter register number of student</label>
                 </div>
-                <div class="col s6">
-                    <p>
-                        <label>
-                          <input name="detailType" id="student" type="radio" value="Student" />
-                          <span>Student</span>
-                        </label>
-                    </p>
-
-                </div>
-                <div class="col s6">
-                    <p>
-                        <label>
-                          <input name="detailType" id="staff" type="radio" value="Staff" />
-                          <span>Staff</span>
-                        </label>
-                    </p>
+                <div id="radio-buttons">
+                    <div class="col s6">
+                        <p>
+                            <label>
+                              <input name="detailType" id="student" type="radio" value="Student" />
+                              <span>Student</span>
+                            </label>
+                        </p>
+    
+                    </div>
+                    <div class="col s6">
+                        <p>
+                            <label>
+                              <input name="detailType" id="staff" type="radio" value="Staff" />
+                              <span>Staff</span>
+                            </label>
+                        </p>
+                    </div>
                 </div>
 
                 <a id="view-details" class="waves-effect waves-light btn green" style="margin-top: 10px;">View Details</a>

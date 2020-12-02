@@ -3,6 +3,9 @@ const searchidController = document.getElementById('search-id');
 const detailsController = document.getElementById('details');
 const radios = document.getElementsByName('detailType');
 const errorController = document.getElementById('error');
+const radioButtonsController = document.getElementById('radio-buttons');
+const searchIdTextController = document.getElementById('search-id-text');
+let loginType = '';
 
 const detailsTitle = ['Name', 'Register Number', 'DOB', 'Attendance Percentage', 'Maths marks', 'English marks', 'Computer marks', 'Total marks percentage']
 
@@ -13,10 +16,14 @@ search.addEventListener('click', async (e) => {
     let regno = searchidController.value;
     let detailType;
 
-    for (var i = 0, length = radios.length; i < length; i++) {
-        if (radios[i].checked) {
-            detailType = radios[i].value;
-            break;
+    if (loginType === 'Staff') {
+        detailType = 'Student';
+    } else {
+        for (var i = 0, length = radios.length; i < length; i++) {
+            if (radios[i].checked) {
+                detailType = radios[i].value;
+                break;
+            }
         }
     }
 
@@ -44,11 +51,14 @@ search.addEventListener('click', async (e) => {
 });
 
 async function setBackPath() {
-    const loginType = await eel.getLoginType()();
+    loginType = await eel.getLoginType()();
+
     if (loginType === 'Staff') {
-        document.getElementById('back').href = '../staff/dashboard.html'
+        document.getElementById('back').href = '../staff/dashboard.html';
+        radioButtonsController.style.display = 'none';
     } else {
-        document.getElementById('back').href = '../admin/dashboard.html'
+        searchIdTextController.innerText = 'Enter register no. of student or ID of staff'
+        document.getElementById('back').href = '../admin/dashboard.html';
     }
 }
 

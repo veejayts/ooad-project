@@ -20,7 +20,7 @@
         </div>
         <div id="main">
             <div class="row">
-                <h1>Update Student Details</h1>
+                <h1>Enter Student Marks</h1>
             </div>
             
             <div class="row">
@@ -39,14 +39,16 @@
             </div>
         
             <div id="student-form" style="display: none;">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" />
-                <label for="regno">Register Number</label>
-                <input type="text" id="regno" name="regno" disabled />
-                <label for="dob">DOB</label>
-                <input type="text" id="dob" name="dob" />
-                <label for="attendance">Attendance percentage</label>
-                <input type="number" id="attendance" name="attendance" />
+                <div id="hide" style="display: none;">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" />
+                    <label for="regno">Register Number</label>
+                    <input type="text" id="regno" name="regno" disabled />
+                    <label for="dob">DOB</label>
+                    <input type="text" id="dob" name="dob" />
+                    <label for="attendance">Attendance percentage</label>
+                    <input type="number" id="attendance" name="attendance" />
+                </div>
                 <label for="maths">Maths marks</label>
                 <input type="number" id="maths" name="maths" />
                 <label for="english">English marks</label>
@@ -59,11 +61,10 @@
                     <a id="submit" class="waves-effect waves-light btn green darken-2">Submit</a>
                 </div>
             </div>
-        
         </div>
     </div>
 
-    <script src="update_details.js"></script>
+    <script src="enter_marks.js"></script>
     <script src="../loginstatus.js"></script>
     <script src="../materialize.min.js"></script>
 </body>
