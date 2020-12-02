@@ -4,7 +4,7 @@ class Staff:
     db = DatabaseHelper()
 
     def __init__(self):
-        print('Staff')
+        pass
     
     def updateDetails(self, name, regno, dob, attendance, maths, english, computer, percentage):
         """

@@ -13,6 +13,18 @@ const englishController = document.getElementById('english');
 const computerController = document.getElementById('computer');
 const percentageController = document.getElementById('percentage');
 
+mathsController.addEventListener('change', (e) => {
+    percentageController.value = ((Number(mathsController.value) + Number(englishController.value) + Number(computerController.value)) / 300) * 100;
+});
+
+englishController.addEventListener('change', (e) => {
+    percentageController.value = ((Number(mathsController.value) + Number(englishController.value) + Number(computerController.value)) / 300) * 100;
+});
+
+computerController.addEventListener('change', (e) => {
+    percentageController.value = ((Number(mathsController.value) + Number(englishController.value) + Number(computerController.value)) / 300) * 100;
+});
+
 searchBtn.addEventListener('click', async (e) => {
     errorController.innerText = '';
     studentFormController.style.display = 'none';
@@ -25,7 +37,7 @@ searchBtn.addEventListener('click', async (e) => {
         return;
     }
 
-    // console.log(data);
+    console.log(data);
     
     nameController.value = data['name'];
     regnoController.value = data['regno'];
@@ -34,7 +46,7 @@ searchBtn.addEventListener('click', async (e) => {
     mathsController.value = data['maths_marks'];
     englishController.value = data['english_marks'];
     computerController.value = data['computer_marks'];
-    percentageController.value = data['percentage_marks'];
+    percentageController.value = data['maths_marks'] + data['english_marks'] + data['computer_marks'];
     
     studentFormController.style.display = 'block';
 });
@@ -58,7 +70,13 @@ submitBtn.addEventListener('click', async (e) => {
     // console.log(computer)
     // console.log(percentage)
 
-    let success = eel.updateDetails(name, regno, dob, attendance, maths, english, computer, percentage)();
+    let success = false;
+    let aboveLimit = true;
+
+    if (((Number(mathsController.value) + Number(englishController.value) + Number(computerController.value)) / 300) * 100 <= 100) {
+        success = eel.updateDetails(name, regno, dob, attendance, maths, english, computer, percentage)();
+        aboveLimit = false;
+    }
 
     if(success) {
         errorController.innerText = 'Successfully updated details';
@@ -66,6 +84,7 @@ submitBtn.addEventListener('click', async (e) => {
     } else {
         errorController.innerText = 'Error, could not update details';
         errorController.style.color = 'red';
+        aboveLimit? errorController.innerText = 'Error, could not update details. Total marks percentage above 100' : 'Error, could not update details.';
     }
 });
 

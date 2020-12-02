@@ -17,7 +17,6 @@ class Admin:
                 'password': f'student{regno}',
                 'd_o_b': d_o_b
             }
-            print(student_data)
 
             # Checking if student already exists
             rec = self.db.getAll('SELECT regno FROM student WHERE regno = :regno', {'regno': int(regno)})

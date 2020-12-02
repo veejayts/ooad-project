@@ -4,7 +4,7 @@ const detailsController = document.getElementById('details');
 const radios = document.getElementsByName('detailType');
 const errorController = document.getElementById('error');
 
-const detailsTitle = ['Name', 'Register Number', 'DOB', 'Attendance', 'Maths marks', 'English marks', 'Computer marks', 'Total precentage marks']
+const detailsTitle = ['Name', 'Register Number', 'DOB', 'Attendance Percentage', 'Maths marks', 'English marks', 'Computer marks', 'Total marks percentage']
 
 search.addEventListener('click', async (e) => {
     e.preventDefault();
