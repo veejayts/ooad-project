@@ -5,14 +5,30 @@ const radios = document.getElementsByName('detailType');
 const errorController = document.getElementById('error');
 const radioButtonsController = document.getElementById('radio-buttons');
 const searchIdTextController = document.getElementById('search-id-text');
+
+const moreDetailsController = document.getElementById('more');
+
+const marksDetailController = document.getElementById('marks-details')
+const marksController = document.getElementById('marks');
+const semNumberController = document.getElementById('sem-number');
+const examTypeController = document.getElementById('exam');
+const submitBtnController = document.getElementById('submit');
+
+let details = {};
 let loginType = '';
 
-const detailsTitle = ['Register Number', 'Name', 'DOB', 'Attendance Percentage', 'Maths marks', 'English marks', 'Computer marks', 'Total marks percentage']
+const detailsTitle = ['Register Number', 'Name', 'DOB', 'Department', 'Sem']
+
+marksDetailController.style.display = 'none';
+moreDetailsController.style.display = 'none';
 
 search.addEventListener('click', async (e) => {
     e.preventDefault();
     detailsController.innerHTML = '';
+    marksDetailController.style.display = 'none';
+    moreDetailsController.style.display = 'none';
     errorController.innerText = '';
+
     let regno = searchidController.value;
     let detailType;
 
@@ -27,7 +43,7 @@ search.addEventListener('click', async (e) => {
         }
     }
 
-    let details = await eel.viewDetails(detailType, regno)();
+    details = await eel.viewDetails(detailType, regno)();
 
     console.log(details);
 
@@ -43,11 +59,46 @@ search.addEventListener('click', async (e) => {
             tr.appendChild(td1);
             detailsController.appendChild(tr);
         }
+    moreDetailsController.style.display = 'block';
     } else {
         errorController.innerText = '';
         errorController.innerText = 'Error: User not found, check details and try again';
         errorController.style.color = 'red';
     }
+});
+
+submitBtnController.addEventListener('click', async(e) => {
+    let sem = semNumberController.value;
+    let type = examTypeController.value;
+
+    let marks_data = await eel.getAllMarks(searchidController.value, sem, type)();
+    let attendance_data = await eel.getAttendance(searchidController.value, sem)();
+    
+    if(marks_data !== []) {
+        marksDetailController.style.display = 'block';
+        
+        for(let i = 0; i < marks_data.length; i++) {
+            let tr = document.createElement('tr');
+            let td1 = document.createElement('td');
+            let td2 = document.createElement('td');
+            let td3 = document.createElement('td');
+
+            td1.textContent = marks_data[i][0];
+            td2.textContent = marks_data[i][1];
+            td3.textContent = attendance_data[i][1];
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+
+            marksController.appendChild(tr);
+        }
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, []);
 });
 
 async function setBackPath() {

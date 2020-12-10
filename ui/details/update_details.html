@@ -35,7 +35,6 @@
             
             <div class="row center-align">
                 <p id="error"></p>
-                <p id="attendance-error"></p>
             </div>
         
             <div id="student-form" style="display: none;">
@@ -45,16 +44,10 @@
                 <input type="text" id="regno" name="regno" disabled />
                 <label for="dob">DOB</label>
                 <input type="text" id="dob" name="dob" />
-                <label for="attendance">Attendance percentage</label>
-                <input type="number" id="attendance" name="attendance" />
-                <label for="maths">Maths marks</label>
-                <input type="number" id="maths" name="maths" />
-                <label for="english">English marks</label>
-                <input type="number" id="english" name="english" />
-                <label for="computer">Computer marks</label>
-                <input type="number" id="computer" name="computer" />
-                <label for="percentage">Total marks percentage</label>
-                <input type="number" id="percentage" name="percentage" disabled />
+                <label for="department">Department</label>
+                <input id="department" type="text" class="validate">
+                <label for="sem">Semester</label>
+                <input id="sem" type="number" class="validate">
                 <div class="row center-align">
                     <a id="submit" class="waves-effect waves-light btn green darken-2">Submit</a>
                 </div>

@@ -9,9 +9,12 @@ const staffFormController = document.getElementById("staff-form");
 const name = document.getElementById('name');
 const regno = document.getElementById('regno');
 const dob = document.getElementById('dob');
+const studentDepartment = document.getElementById('student-department');
+const sem = document.getElementById('sem');
 
 const nameStaff = document.getElementById('name-staff');
 const id = document.getElementById('id');
+const staffDepartment = document.getElementById('staff-department');
 
 const successMsgController = document.getElementById('success-msg');
 
@@ -45,12 +48,13 @@ submit.addEventListener("click", async (e) => {
     if(loginType === 'Staff') {
         console.log(nameStaff.value);
         console.log(id.value);
-        success = await eel.enterDetails(loginType, id.value, nameStaff.value)();
+        console.log(staffDepartment.value)
+        success = await eel.enterDetails(loginType, id.value, nameStaff.value, '', staffDepartment.value)();
     } else {
         console.log(regno.value);
         console.log(name.value);
         console.log(dob.value);
-        success = await eel.enterDetails(loginType, regno.value, name.value, dob.value)();
+        success = await eel.enterDetails(loginType, regno.value, name.value, dob.value, studentDepartment.value, sem.value)();
     }
     console.log(success);
 

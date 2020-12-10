@@ -7,24 +7,18 @@ class Student:
     d_o_b = 0
     db = DatabaseHelper()
 
-    def __init__(self, regno):
-        self.regno = regno
-
     def viewDetails(self, regno):
         """
         :returns: Details of the student
         """
-        record = self.db.getAll(f'SELECT * FROM student WHERE regno = "{id}"')
+        record = self.db.getAll(f'SELECT * FROM student WHERE regno = "{regno}"')
         record = record[0]
         data = {
             'regno': record[0],
             'name': record[1],
             'dob': record[3],
-            'attendance': record[4],
-            'maths_marks': record[5],
-            'computer_marks': record[6],
-            'english_marks': record[7],
-            'percentage_marks': record[8]
+            'department': record[4],
+            'sem': record[5]
         }
         return data
     
@@ -32,7 +26,7 @@ class Student:
         """
         :returns: Marks of requested student
         """
-        record = self.db.getAll(f'SELECT * FROM student WHERE regno = "{id}"')
+        record = self.db.getAll(f'SELECT * FROM student WHERE regno = {regno}')
         record = record[0]
         data = {
             'maths_marks': record[5],
@@ -42,6 +36,20 @@ class Student:
         }
         return data
     
+    def getDepartment(self, regno):
+        """
+        :returns: Department of the student
+        """
+        record  = self.viewDetails(regno)
+        return record['department']
+
+    def getAllMarks(self, regno, department, sem, type):
+        """
+        :returns: Marks of all requested sem of the student
+        """
+        record = self.db.getAll(f'SELECT subcode, marks FROM marks WHERE regno = {regno} AND department = "{department}" AND sem = {sem} AND type = "{type}"')
+        return record
+
     def logout(self):
         """
         Logs out the user

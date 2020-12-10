@@ -33,7 +33,7 @@ updateBtnController.addEventListener('click', async(e) => {
 
     if(subcodes.includes(subcode)) {
         updateSectionController.style.display = 'block';
-        let regnos = await eel.getStudentsInSem(sem, examTypeController.value, subcode)();
+        let regnos = await eel.getSubjectAttendance(sem, subcode)();
         console.log(regnos)
 
         for(let i of regnos) {
@@ -45,7 +45,7 @@ updateBtnController.addEventListener('click', async(e) => {
             td2.innerHTML = `
                 <div class="input-field">
                     <input id="${i[0]}" type="number" class="validate" value=${i[1]}>
-                    <label for="subcode">Marks</label>
+                    <label for="subcode">Attendance</label>
                 </div>`;
             tr.appendChild(td1)
             tr.appendChild(td2)
@@ -61,15 +61,17 @@ submitBtnController.addEventListener('click', async (e) => {
     successController.innerText = '';
 
     let sem = semNumberController.value;
-    let regnos = await eel.getStudentsInSem(sem, examTypeController.value, subCodeController.value)();
+    let regnos = await eel.getSubjectAttendance(sem, subCodeController.value)();
     let data = [];
+
+    console.log(regnos);
 
     for(let i of regnos) {
         let temp = document.getElementById(i[0]);
         data.push([i[0], temp.value]);
     }
 
-    let success = await eel.setMarks(sem, data, examTypeController.value, subCodeController.value)();
+    let success = await eel.setAttendance(sem, data, subCodeController.value)();
 
     if(success) {
         successController.innerText = 'Success inserting';
