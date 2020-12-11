@@ -12,13 +12,15 @@ const submitBtnController = document.getElementById('submit');
 
 const studentFormController = document.getElementById('student-form');
 
+let data = {};
+
 marksDetailController.style.display = 'none';
 
 async function displayDetails() {
     studentFormController.style.display = 'none';
 
     let regno = await eel.getRegno()();
-    let data = await eel.viewDetails('Student', regno)();
+    data = await eel.viewDetails('Student', regno)();
 
     console.log(data);
     
@@ -39,7 +41,7 @@ submitBtnController.addEventListener('click', async(e) => {
     let type = examTypeController.value;
     let regno = await eel.getRegno()();
 
-    let marks_data = await eel.getAllMarks(regno, sem, type)();
+    let marks_data = await eel.getAllMarks(regno, data['department'], sem, type)();
     let attendance_data = await eel.getAttendance(regno, sem)();
     
     if(marks_data !== []) {

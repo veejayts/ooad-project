@@ -16,7 +16,7 @@ class Admin:
             'name': name,
             'password': f'student{regno}',
             'd_o_b': d_o_b,
-            'department': department.lower(),
+            'department': department,
             'sem': sem
         }
 

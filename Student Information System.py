@@ -40,7 +40,6 @@ def enterDetails(detailType, sId='', name='', dob='', dep='', sem=1):
     if detailType == 'Student':
         success = admin.enterStudentDetails(sId, name, dob, dep, sem)
     elif detailType == 'Staff':
-        print(dep)
         success = admin.enterStaffDetails(sId, name, dep)
     return success
 
@@ -94,7 +93,7 @@ def setMarks(sem, data, type, subcode):
     return success
 
 @eel.expose
-def getAllMarks(regno = -1, sem = 1, type = 'CAT1'):
+def getAllMarks(regno = -1, department = 'CSE', sem = 1, type = 'CAT1'):
     student = Student()
     global id
     if regno != -1:
@@ -124,7 +123,6 @@ def setAttendance(sem, data, subcode):
     staff = Staff()
     success = staff.setAttendance(int(sem), data, subcode)
     return success
-
 
 @eel.expose
 def getRegno():

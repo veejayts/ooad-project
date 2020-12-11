@@ -18,7 +18,6 @@ class System:
             regno = int(regno)
 
         credentials = self.db.getLoginCredentials(regno, login_type)
-        print(credentials)
 
         if regno == credentials['regno'] and password == credentials['password']:
             return True

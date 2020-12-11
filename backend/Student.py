@@ -47,7 +47,7 @@ class Student:
         """
         :returns: Marks of all requested sem of the student
         """
-        record = self.db.getAll(f'SELECT subcode, marks FROM marks WHERE regno = {regno} AND department = "{department}" AND sem = {sem} AND type = "{type}"')
+        record = self.db.getAll(f'SELECT subcode, marks FROM marks WHERE regno = {regno} AND department = "{department}" AND sem = {sem} AND type = \'{type}\'')
         return record
 
     def logout(self):

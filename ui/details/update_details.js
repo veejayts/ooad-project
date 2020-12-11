@@ -56,6 +56,11 @@ submitBtn.addEventListener('click', async (e) => {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, []);
+});
+
 async function setBackPath() {
     const loginType = await eel.getLoginType()();
     if (loginType === 'Staff') {

@@ -66,3 +66,9 @@ submit.addEventListener("click", async (e) => {
         successMsgController.style.color = 'red';
     }
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, []);
+});

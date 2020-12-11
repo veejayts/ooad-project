@@ -59,7 +59,9 @@ search.addEventListener('click', async (e) => {
             tr.appendChild(td1);
             detailsController.appendChild(tr);
         }
-    moreDetailsController.style.display = 'block';
+        if(detailType === 'Student') {
+            moreDetailsController.style.display = 'block';
+        }
     } else {
         errorController.innerText = '';
         errorController.innerText = 'Error: User not found, check details and try again';
@@ -68,10 +70,12 @@ search.addEventListener('click', async (e) => {
 });
 
 submitBtnController.addEventListener('click', async(e) => {
+    marksController.innerHTML = '';
+
     let sem = semNumberController.value;
     let type = examTypeController.value;
 
-    let marks_data = await eel.getAllMarks(searchidController.value, sem, type)();
+    let marks_data = await eel.getAllMarks(searchidController.value, details['department'], sem, type)();
     let attendance_data = await eel.getAttendance(searchidController.value, sem)();
     
     if(marks_data !== []) {

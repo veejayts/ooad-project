@@ -18,7 +18,7 @@ if not (os.path.isfile('sis.db')):
         c.execute('CREATE TABLE marks (regno INT, type TEXT, subcode TEXT, marks INT, department TEXT, sem INT)')
         c.execute('CREATE TABLE attendance (regno INT, subcode TEXT, attendance INT, sem INT)')
         c.execute('CREATE TABLE staff (regno TEXT, name TEXT, password TEXT, department TEXT)')
-        c.execute('CREATE TABLE subjects (id INT, subname TEXT, subcode TEXT, department TEXT, sem INT)')
+        c.execute('CREATE TABLE subjects (subname TEXT, subcode TEXT, department TEXT, sem INT)')
         c.execute('CREATE TABLE admin (regno INT, password TEXT)')
         c.execute('CREATE TABLE studenthistory (regno INT, title TEXT, description TEXT)')
         c.execute('CREATE TABLE notice (notice TEXT)')
@@ -26,15 +26,13 @@ if not (os.path.isfile('sis.db')):
         conn.commit()
 
         c.execute('INSERT INTO admin (regno, password) VALUES (123, "123")')
-        c.execute('INSERT INTO subjects (id, subname, subcode, department, sem) VALUES (1, "css1", "CS1", "cs", 1)')
-        c.execute('INSERT INTO subjects (id, subname, subcode, department, sem) VALUES (1, "css1", "CS2", "cs", 1)')
-        c.execute('INSERT INTO subjects (id, subname, subcode, department, sem) VALUES (1, "css1", "CS3", "cs", 2)')
-        c.execute('INSERT INTO subjects (id, subname, subcode, department, sem) VALUES (1, "css1", "CS4", "cs", 3)')
-        c.execute('INSERT INTO subjects (id, subname, subcode, department, sem) VALUES (1, "css1", "CS5", "cs", 4)')
-        c.execute('INSERT INTO subjects (id, subname, subcode, department, sem) VALUES (1, "css1", "CS6", "cs", 5)')
-        c.execute('INSERT INTO subjects (id, subname, subcode, department, sem) VALUES (1, "css1", "CS7", "cs", 6)')
-        c.execute('INSERT INTO subjects (id, subname, subcode, department, sem) VALUES (1, "css1", "CS9", "cs", 8)')
-        c.execute('INSERT INTO subjects (id, subname, subcode, department, sem) VALUES (1, "eces1", "ECE5", "ece", 5)')
+
+        departments = ["CSE", "ECE", "CIVIL", "IT", "MECH", "EEE"]
+
+        for dep in departments:
+            for i in range(1, 9):
+                for j in range(1, 6):
+                    c.execute(f'INSERT INTO subjects (subname, subcode, department, sem) VALUES ("{dep}{i}{j}", "{dep}{i}{j}", "{dep}", {i})')
 
         conn.commit()
         conn.close()
@@ -96,6 +94,3 @@ class DatabaseHelper:
         record = {'regno': record[0][0], 'password': record[0][1]}
         self.__closeDbConnection()
         return record
-
-# db = DatabaseHelper()
-# print(db.getAll('select * from student'))
