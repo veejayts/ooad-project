@@ -103,7 +103,7 @@ def getAllMarks(regno = -1, department = 'CSE', sem = 1, type = 'CAT1'):
     return data
 
 @eel.expose
-def getAttendance(regno = -1, sem = 1):
+def getAttendance(regno = -1, department = 'CSE', sem = 1):
     staff = Staff()
     global id
     if regno != -1:

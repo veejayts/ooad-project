@@ -76,7 +76,7 @@ submitBtnController.addEventListener('click', async(e) => {
     let type = examTypeController.value;
 
     let marks_data = await eel.getAllMarks(searchidController.value, details['department'], sem, type)();
-    let attendance_data = await eel.getAttendance(searchidController.value, sem)();
+    let attendance_data = await eel.getAttendance(searchidController.value, details['department'], sem)();
     
     if(marks_data !== []) {
         marksDetailController.style.display = 'block';
