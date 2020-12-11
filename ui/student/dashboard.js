@@ -42,7 +42,7 @@ submitBtnController.addEventListener('click', async(e) => {
     let regno = await eel.getRegno()();
 
     let marks_data = await eel.getAllMarks(regno, data['department'], sem, type)();
-    let attendance_data = await eel.getAttendance(regno, sem)();
+    let attendance_data = await eel.getAttendance(regno, data['department'], sem)();
     
     if(marks_data !== []) {
         marksDetailController.style.display = 'block';
